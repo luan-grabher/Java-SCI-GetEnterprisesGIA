@@ -3,6 +3,7 @@ package sci.getenterprisesgia.Control;
 import Entity.Executavel;
 import fileManager.FileManager;
 import java.io.File;
+import sci.getenterprisesgia.Model.EnterpriseFileModel;
 import sql.Database;
 
 
@@ -11,6 +12,9 @@ public class Controller {
     private final Integer year;
     private Integer reference;
     private final File enterprisesFile;
+    
+    //Models
+    private EnterpriseFileModel enterpriseFileModel = new EnterpriseFileModel();
 
     public Controller(Integer month, Integer year, File enterprisesFile) {
         this.month = month;
@@ -45,5 +49,19 @@ public class Controller {
                 throw new Error("Erro ao conectar ao banco de dados!");
             }
         }
+    }
+    
+    public class createEnterprisesList extends Executavel{
+
+        public createEnterprisesList() {
+            name = "Criando lista de empresas com o arquivo fornecido...";
+        }
+
+        @Override
+        public void run() {
+            enterpriseFileModel.setFile(enterprisesFile);
+            enterpriseFileModel.populateMap();
+        }
+        
     }
 }

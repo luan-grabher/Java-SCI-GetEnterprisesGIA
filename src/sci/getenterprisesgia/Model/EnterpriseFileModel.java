@@ -7,12 +7,19 @@ import java.util.TreeMap;
 
 
 public class EnterpriseFileModel {
-    private final File file;
+    private File file;
     private final Map<Integer,String> enterprises = new TreeMap<>();
 
-    public EnterpriseFileModel(File file) {
-        this.file = file;
+    public EnterpriseFileModel() {
     }
+
+    public File getFile() {
+        return file;
+    }
+
+    public void setFile(File file) {
+        this.file = file;
+    }        
     
     public void populateMap(){
         String fileText = FileManager.getText(file);

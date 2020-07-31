@@ -31,6 +31,8 @@ public class SCIGetEnterprisesGIA {
         List<Executavel> execs = new ArrayList<>();
         execs.add(controller.new setReference());
         execs.add(controller.new connectToDatabase());
+        execs.add(controller.new createEnterprisesList());
+        execs.add(controller.new createGiaList());
         
         Execution exec = new Execution("Buscar informações GIA mensal");
         

@@ -4,6 +4,7 @@ import Entity.Executavel;
 import fileManager.FileManager;
 import java.io.File;
 import sci.getenterprisesgia.Model.EnterpriseFileModel;
+import sci.getenterprisesgia.Model.GiaModel;
 import sql.Database;
 
 
@@ -15,6 +16,7 @@ public class Controller {
     
     //Models
     private EnterpriseFileModel enterpriseFileModel = new EnterpriseFileModel();
+    private GiaModel giaModel = new GiaModel();
 
     public Controller(Integer month, Integer year, File enterprisesFile) {
         this.month = month;
@@ -61,6 +63,21 @@ public class Controller {
         public void run() {
             enterpriseFileModel.setFile(enterprisesFile);
             enterpriseFileModel.populateMap();
+        }
+        
+    }
+    
+    public class createGiaList extends Executavel{
+
+        public createGiaList() {
+            name = "Criando lista GIA das empresas...";
+        }
+
+        @Override
+        public void run() {
+            giaModel.setReference(reference);
+            giaModel.setEnterprises(enterpriseFileModel.getEnterprises());
+            giaModel.setGias();
         }
         
     }

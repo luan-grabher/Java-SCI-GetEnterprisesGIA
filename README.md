@@ -1,2 +1,2 @@
-# Java-SCI-GetEnterprisesGIA
-Java application to import data of SCI Unico system to an excel of Enterprises GIA
+# Gerar Guia de Informação e Apuração do ICMS de diversas empresas em massa
+Gera a GIA de todas as empresas ativas no sistema contábil.
